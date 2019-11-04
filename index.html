@@ -3,7 +3,63 @@
     <body>
 
         <script>
-            
+
+            // Returns either Rock, Paper or Scissors randomly
+            function computerPlay() {
+                var myArray = ['ROCK', 'PAPER', 'SCISSORS'];
+                var rand = myArray[Math.floor(Math.random() * myArray.length)];
+                return rand;
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                pSelection = playerSelection.toUpperCase();
+                if (pSelection === computerSelection) {
+                    return "You Tied! Go Again! ";
+                } else if (pSelection === 'ROCK') {
+                    if (computerSelection === "PAPER") {
+                        return "You Lose! Paper beats Rock";
+                    }
+                    return "You Win! Rock beats Scissors";
+                } else if (pSelection === 'PAPER') {
+                    if (computerSelection === 'ROCK') {
+                        return "You Win! Paper beats Rock";
+                    }
+                    return "You lose! Scissors beats Paper";
+                } else {
+                    if (computerSelection === 'ROCK') {
+                        return "You Lose! Rock beats Scissors";
+                    }
+                    return "You Win! Scissors beats Paper";
+                }
+            }
+
+            function game() {
+                let roundAmount = prompt("How many rounds would you like to play?");
+                let currentRound = 0;
+                let pScore = 0;
+                let cScore = 0;
+                let totalScore = "SCORE: You: " + pScore + " Comp: " + cScore;
+                while (currentRound < roundAmount) {
+                    roundScore = playRound(prompt("What do you throw!"),computerPlay());
+                    console.log(roundScore.charAt(4));
+                    if (roundScore.charAt(4) === 'W') {
+                    pScore += 1;
+                    console.log(pScore);
+                    }else if (roundScore.charAt(4) == 'L') {
+                    cScore += 1;
+                    }
+                    console.log(roundScore);
+                    console.log("Score: You: " + pScore + " Comp: " + cScore);
+                    currentRound += 1;
+                }
+                if (pScore > cScore) {
+                    console.log("Congrats you won the whole thing");
+                } else if (pScore < cScore) {
+                    console.log("Oh no! The computer won the whole thing");
+                } else {
+                    console.log("You tied!");
+                }
+            }
         </script>
     </body>
 
