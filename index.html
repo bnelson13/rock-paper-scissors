@@ -41,21 +41,19 @@
                 let totalScore = "SCORE: You: " + pScore + " Comp: " + cScore;
                 while (currentRound < roundAmount) {
                     roundScore = playRound(prompt("What do you throw!"),computerPlay());
-                    console.log(roundScore.charAt(4));
                     if (roundScore.charAt(4) === 'W') {
-                    pScore += 1;
-                    console.log(pScore);
+                        pScore += 1;
                     }else if (roundScore.charAt(4) == 'L') {
-                    cScore += 1;
+                        cScore += 1;                    
                     }
                     console.log(roundScore);
                     console.log("Score: You: " + pScore + " Comp: " + cScore);
                     currentRound += 1;
                 }
                 if (pScore > cScore) {
-                    console.log("Congrats you won the whole thing");
+                    console.log("Congrats you won the whole thing!");
                 } else if (pScore < cScore) {
-                    console.log("Oh no! The computer won the whole thing");
+                    console.log("Oh no! The computer won the whole thing!");
                 } else {
                     console.log("You tied!");
                 }
